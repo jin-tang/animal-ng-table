@@ -19,28 +19,28 @@ const pusher = new Pusher({
   encrypted: true
 })
 
-app.post('/employee', (req, res) => {
+app.post('/animals', (req, res) => {
   // simulate actual db save with id and createdAt added
-  const employee = {
-    id: shortId.generate(),
+  const animal = {
+    key: shortId.generate(),
     createdAt: new Date().toISOString(),
     ...req.body
   }
-  mocks.push(employee) // like our db
+  mocks.push(animal) // like our db
   // trigger this update to our pushers listeners
-  pusher.trigger('employee', 'new', employee)
-  res.send(employee)
+  pusher.trigger('animal', 'new', animal)
+  res.send(animal)
 })
 
-app.delete('/employee/:id', (req, res) => {
-  const employee = mocks.find(emp => emp.id === req.params.id)
-  mocks = mocks.filter(emp => emp.id !== employee.id)
-  pusher.trigger('employee', 'deleted', employee)
-  res.send(employee)
+app.delete('/animals/:key', (req, res) => {
+  const animal = mocks.find(emp => anim.key === req.params.key)
+  mocks = mocks.filter(emp => anim.key !== animal.key)
+  pusher.trigger('animal', 'deleted', animal)
+  res.send(animal)
 })
 
-app.get('/employee', (req, res) => {
+app.get('/animals', (req, res) => {
   res.send(mocks)
 })
 
-app.listen(process.env.PORT || 2000, () => console.log('Listening at 2000'))
+app.listen(process.env.PORT || 8080, () => console.log('Listening at 8080'))

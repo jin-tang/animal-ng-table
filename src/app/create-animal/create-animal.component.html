@@ -8,7 +8,7 @@
   </div>
   <div class="form-group">
     <label for="type">Type</label>
-    <select formControlName="type" class="form-control" id="type">
+    <select formControlName="animalType" class="form-control" id="type">
       <option>MAMMAL</option>
       <option>INSECT</option>
       <option>REPTILE</option>
@@ -19,5 +19,10 @@
     <input formControlName="breed" type="text" class="form-control" id="breed" placeholder="Dog">
     <small *ngIf="animalForm.get('breed').hasError('required')" class="form-text text-danger">Breed is required.</small>
   </div>
-  <button type="submit" [disabled]="loader || animalForm.invalid" class="btn btn-primary">{{loader?'Adding':'Add'}}</button>
+  <div class="form-group">
+    <label for="age">age</label>
+    <input formControlName="age" type="text" class="form-control" id="age" placeholder="3">
+    <small *ngIf="animalForm.get('age').hasError('required')" class="form-text text-danger">Age is required.</small>
+  </div>
+  <button type="submit" [disabled]="loader || animalForm.invalid" class="btn btn-primary" onClick="window.location.reload()">{{loader?'Adding':'Add'}}</button>
 </form>

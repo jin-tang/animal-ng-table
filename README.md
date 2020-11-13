@@ -24,7 +24,7 @@ These instructions will get you a copy of the project up and running on your loc
   * `PUSHER_SECRET`
   * `PUSHER_CLUSTER`
   
-e.g `PUSHER_APPID=[appId] npm run server` then http://localhost:2000/employee (supports `POST`, `GET`, `DELETE`)
+e.g `PUSHER_APPID=[appId] npm run server` then http://localhost:8080/animal (supports `POST`, `GET`, `DELETE`)
 
 or Create a `.env` file with the above variables above, like so
 ```sh

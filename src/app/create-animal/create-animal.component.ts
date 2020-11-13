@@ -24,8 +24,9 @@ export class CreateAnimalComponent implements OnInit {
   private _createForm() {
     this.animalForm = this._fb.group({
       name: ['', Validators.required],
-      type: ['MAMMAL', Validators.required],
-      breed: ['', Validators.required]
+      animalType: ['MAMMAL', Validators.required],
+      breed: ['', Validators.required],
+      age: ['', Validators.required]
     });
   }
 
@@ -37,7 +38,7 @@ export class CreateAnimalComponent implements OnInit {
     this._animalService.create(param)
       .subscribe((animal: IAnimal) => {
          this.loader = false;
-         this.animalForm.reset({type: 'MAMMAL'});
+         this.animalForm.reset({animalType: 'MAMMAL'});
       },
         (error) => {
           console.error(error);
