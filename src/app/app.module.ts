@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { NgAlertModule } from '@theo4u/ng-alert';
 
 import { AppComponent } from './app.component';
-import { CreateEmployeeComponent } from './create-employee/create-employee.component';
-import { ListEmployeeComponent } from './list-employee/list-employee.component';
-import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
-import { EmployeeService } from './services/employee.service';
+import { CreateAnimalComponent } from './create-animal/create-animal.component';
+import { ListAnimalComponent } from './list-animal/list-animal.component';
+import { EditAnimalComponent } from './edit-animal/edit-animal.component';
+import { AnimalService } from './services/animal.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PusherService } from './services/pusher.service';
@@ -15,9 +15,9 @@ import { PusherService } from './services/pusher.service';
 @NgModule({
   declarations: [
     AppComponent,
-    CreateEmployeeComponent,
-    ListEmployeeComponent,
-    EditEmployeeComponent
+    CreateAnimalComponent,
+    ListAnimalComponent,
+    EditAnimalComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +25,7 @@ import { PusherService } from './services/pusher.service';
     NgAlertModule,
     HttpClientModule
   ],
-  providers: [EmployeeService, PusherService],
+  providers: [AnimalService, PusherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

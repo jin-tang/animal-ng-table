@@ -1,0 +1,23 @@
+<h6 class="pb-2 mb-0">Create Animals</h6>
+
+<form [formGroup]="animalForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input formControlName="name" type="text" class="form-control" id="name" placeholder="Bella">
+     <small *ngIf="animalForm.get('name').hasError('required')" class="form-text text-danger">Name is required.</small>
+  </div>
+  <div class="form-group">
+    <label for="type">Type</label>
+    <select formControlName="type" class="form-control" id="type">
+      <option>MAMMAL</option>
+      <option>INSECT</option>
+      <option>REPTILE</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="breed">Breed</label>
+    <input formControlName="breed" type="text" class="form-control" id="breed" placeholder="Dog">
+    <small *ngIf="animalForm.get('breed').hasError('required')" class="form-text text-danger">Breed is required.</small>
+  </div>
+  <button type="submit" [disabled]="loader || animalForm.invalid" class="btn btn-primary">{{loader?'Adding':'Add'}}</button>
+</form>
