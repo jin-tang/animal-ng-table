@@ -1,0 +1,33 @@
+<h6 class="pb-2 mb-0">Animals</h6>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Breed</th>
+      <th scope="col">Age</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let animal of animals">
+      <td>
+       <span *ngIf="animal.new" class="badge badge-primary">new</span> {{animal.name}}
+      </td>
+      <td>{{animal.animalType}}</td>
+      <td>{{animal.breed}}</td>
+      <td>{{animal.age}}</td>
+      <td>
+        <button class="btn btn-primary btn-sm">
+          <span class="oi oi-pencil"></span>
+        </button>
+        <button (click)="delete(animal)" class="btn btn-danger btn-sm">
+          <span class="oi oi-trash"></span>
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="loading">
+     <td colspan="5" align="center">Fetching Animals</td>
+    </tr>
+  </tbody>
+</table>
